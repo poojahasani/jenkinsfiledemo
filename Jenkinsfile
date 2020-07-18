@@ -1,5 +1,5 @@
 pipeline {
-    agent any
+    agent secure
     stages {
         stage('Build') {
             steps {
