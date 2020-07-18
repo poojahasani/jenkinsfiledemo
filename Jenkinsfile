@@ -5,9 +5,16 @@ pipeline {
             steps {
                 sh 'echo "Hello World"'
                 sh '''
-                    echo "Multiline shell steps works too"
+                    echo "Building application"
                     ls -lah
                 '''
+            }
+        }
+        stage('Test') {
+            steps {
+                echo "Testing the application"
+                echo "server space check"
+                sh label: '', script: 'df -h'
             }
         }
     }
