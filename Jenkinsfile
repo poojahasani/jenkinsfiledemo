@@ -1,21 +1,14 @@
 pipeline {
     agent any
-    tools {
-        maven 'M2_HOME'
-       
-    }
-
- 
-
     stages {
-        stage('Hello') {
+        stage('Build') {
             steps {
-                echo 'Hello World'
+                sh 'echo "Hello World"'
+                sh '''
+                    echo "Multiline shell steps works too"
+                    ls -lah
+                '''
             }
         }
-        stage('git checkout'){
-            steps {
-                git credentialsId: 'GIT_Cred', url: 'https://github.com/poojahasani/jenkinsfiledemo.git'
-            }
-        }
-
+    }
+}
